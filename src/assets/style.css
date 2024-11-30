@@ -1,4 +1,9 @@
 @import '/src/assets/fonts.css';
 @tailwind base;
+@layer base {
+  body {
+    @apply font-base text-primary font-normal leading-normal;
+  }
+}
 @tailwind components;
 @tailwind utilities;
