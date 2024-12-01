@@ -8,6 +8,7 @@ export default {
       warning: '#D54100',
       light: '#818A91',
       dark: '#212529',
+      grizzle: '#dedede',
     },
     extend: {
       fontFamily: {
@@ -17,4 +18,4 @@ export default {
     },
   },
   plugins: [],
-}
+};
