@@ -4,6 +4,19 @@
 
 - [Adobe XD](https://xd.adobe.com/view/2c355bc0-1368-4995-b20d-9882992c75b0-7966/)
 
+### Colors
+
+- primary: '#772400'
+- secondary: '#F8B52E'
+- warning: '#D54100'
+- light: '#818A91'
+- dark: '#212529'
+- gray-light: '#CED4DA'
+- gray: '#818A91'
+- gray-dark: '#6C757D'
+- black: #000000
+- white: #ffffff
+
 ## Font
 
 - [Roboto](https://fonts.google.com/specimen/Roboto)
@@ -53,3 +66,5 @@ npm run lint
 - vite v5.4.11
 - vue-router v4.4.5
 - vue v3.5.13
+- headlessui/vue@1.7.23
+- heroicons/vue@2.2.0
