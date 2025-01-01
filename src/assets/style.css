@@ -2,7 +2,7 @@
 @tailwind base;
 @layer base {
   body {
-    @apply font-base text-primary font-normal leading-normal;
+    @apply font-base font-normal leading-normal text-primary;
   }
 }
 @tailwind components;

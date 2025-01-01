@@ -23,7 +23,7 @@ export const usePetStore = defineStore('pet', () => {
     },
     {
       id: '3',
-      name: '',
+      name: 'Yvonne',
       serve: ['寄宿', '美容', '寵物行為訓練'],
       evaluate: 52,
       volume: 196,
