@@ -17,6 +17,24 @@ export default {
       black: colors.black,
       white: colors.white,
     },
+    fontSize: {
+      sm: ['14px', '21px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '30px'],
+      xl: ['24px', '32px'],
+      '2xl': ['28px', '42px'],
+      '3xl': ['32px', '48px'],
+      '4xl': ['36px', '54px'],
+      '5xl': ['40px', '60px'],
+      '6xl': ['48px', '72px'],
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        lg: '1.5rem',
+      },
+    },
     extend: {
       fontFamily: {
         base: ['Noto Sans TC', 'serif'],
