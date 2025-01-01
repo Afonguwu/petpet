@@ -43,224 +43,224 @@ const getGridRowClass = (i) => {
 
 <template>
   <main>
-    <section class="mx-auto mb-3.75 md:mb-56">
-      <div class="mb-3 w-full md:mb-6 md:mt-24" role="banner">
+    <section class="mx-auto mb-3.75 md:mb-56 lg:mb-20 lg:flex">
+      <div class="mb-3 w-full md:mb-6 md:mt-24 lg:w-1/2" role="banner">
         <img
-          class="mx-auto max-h-72 min-h-[50vh] object-cover max-sm:w-full"
+          class="mx-auto max-h-72 min-h-[50vh] w-full object-cover sm:w-52 sm:object-contain lg:max-h-max lg:w-full"
           src="/index/index-1.png"
           alt=""
         />
       </div>
-      <div class="container">
-        <div class="mx-auto sm:w-1/2">
-          <div class="mb-3 px-4 text-center md:mb-5">
-            <h2 class="mb-1 text-2xl font-bold md:mb-2">寵物服務，盡在 PETPET</h2>
-            <p class="text-center text-lg sm:text-left">
-              當您的毛孩有需要時，<br />幫您找到最合適的服務者！
+      <div class="container lg:flex lg:w-1/2 lg:items-center">
+        <div class="mx-auto sm:w-1/2 lg:w-full">
+          <div class="mb-3 text-center md:mb-5 lg:text-left">
+            <h2 class="mb-1 text-2xl font-bold md:mb-2 lg:mb-4 lg:text-5xl">
+              寵物服務，盡在 PETPET
+            </h2>
+            <p class="text-center text-lg sm:text-left lg:text-xl lg:font-bold">
+              當您的毛孩有需要時，<br class="lg:hidden" />幫您找到最合適的服務者！
             </p>
           </div>
-          <Listbox as="div" v-model="selected.name" class="mb-4 sm:mb-3">
-            <div class="relative mt-2">
-              <ListboxButton
-                class="grid w-full cursor-default grid-cols-1 rounded bg-white py-1.5 pl-3 pr-2 text-left text-lg/6 outline outline-1 outline-gray-light focus:outline-2 focus:-outline-offset-2"
-              >
-                <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6 text-gray-dark">
-                  <span class="block truncate">{{ selected.name }}</span>
-                </span>
-                <ChevronUpDownIcon
-                  class="col-start-1 row-start-1 size-5 self-center justify-self-end fill-black sm:size-4"
-                  aria-hidden="true"
-                />
-              </ListboxButton>
-              <transition
-                leave-active-class="transition ease-in duration-100"
-                leave-from-class="opacity-100"
-                leave-to-class="opacity-0"
-              >
-                <ListboxOptions
-                  class="absolute z-10 mt-1 max-h-56 w-full overflow-auto bg-white py-1 shadow-lg ring-1 ring-gray focus:outline-none"
+          <div class="lg:flex lg:items-center">
+            <Listbox as="div" v-model="selected.name" class="mb-4 sm:mb-3 lg:mb-0 lg:w-1/5">
+              <div class="relative">
+                <ListboxButton
+                  class="grid w-full cursor-default grid-cols-1 text-nowrap rounded bg-white py-1.5 pl-3 pr-2 text-left text-lg outline outline-1 outline-gray-light focus:outline-2 focus:-outline-offset-2 lg:rounded-e-none"
                 >
-                  <!--/* 預設顯示 */-->
-                  <ListboxOption disabled value="{ name: '品種', id: '' }">
-                    <div class="relative select-none py-2 pl-3 pr-9 text-gray-dark">
-                      <div class="flex items-center">
-                        <span class="ml-3 block truncate">品種</span>
-                      </div>
-                    </div>
-                  </ListboxOption>
-                  <ListboxOption
-                    as="template"
-                    v-for="pet in selectData.name"
-                    :key="pet"
-                    :value="pet"
-                    v-slot="{ active, selected }"
+                  <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6 text-gray-dark">
+                    <span class="block">{{ selected.name }}</span>
+                  </span>
+                  <ChevronUpDownIcon
+                    class="col-start-1 row-start-1 size-5 self-center justify-self-end fill-black sm:size-4"
+                    aria-hidden="true"
+                  />
+                </ListboxButton>
+                <transition
+                  leave-active-class="transition ease-in duration-100"
+                  leave-from-class="opacity-100"
+                  leave-to-class="opacity-0"
+                >
+                  <ListboxOptions
+                    class="absolute z-10 mt-1 max-h-56 w-full overflow-auto bg-white py-1 shadow-lg ring-1 ring-gray focus:outline-none"
                   >
-                    <li
-                      :class="[
-                        active ? 'bg-warning text-white outline-none' : 'text-gray-dark',
-                        'relative cursor-default select-none py-2 pl-3 pr-9',
-                      ]"
-                    >
-                      <div class="flex items-center">
-                        <span
-                          :class="[
-                            selected ? 'font-semibold' : 'font-normal',
-                            'ml-3 block truncate',
-                          ]"
-                          >{{ pet }}</span
-                        >
+                    <!--/* 預設顯示 */-->
+                    <ListboxOption disabled value="{ name: '品種', id: '' }">
+                      <div class="relative select-none py-2 pl-3 pr-9 text-gray-dark">
+                        <div class="flex items-center">
+                          <span class="ml-3 block text-nowrap">品種</span>
+                        </div>
                       </div>
-                      <span
-                        v-if="selected"
+                    </ListboxOption>
+                    <ListboxOption
+                      as="template"
+                      v-for="pet in selectData.name"
+                      :key="pet"
+                      :value="pet"
+                      v-slot="{ active, selected }"
+                    >
+                      <li
                         :class="[
-                          active ? 'text-white' : 'text-gray-dark',
-                          'absolute inset-y-0 right-0 flex items-center pr-4',
+                          active ? 'bg-warning text-white outline-none' : 'text-gray-dark',
+                          'relative cursor-default select-none py-2 pl-3 pr-9',
                         ]"
                       >
-                        <CheckIcon class="size-5" aria-hidden="true" />
-                      </span>
-                    </li>
-                  </ListboxOption>
-                </ListboxOptions>
-              </transition>
-            </div>
-          </Listbox>
-          <Listbox as="div" v-model="selected.serve" class="mb-4 sm:mb-3">
-            <div class="relative mt-2">
-              <ListboxButton
-                class="grid w-full cursor-default grid-cols-1 rounded bg-white py-1.5 pl-3 pr-2 text-left text-lg/6 outline outline-1 outline-gray-light focus:outline-2 focus:-outline-offset-2"
-              >
-                <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6 text-gray-dark">
-                  <span class="block truncate">{{ selected.serve }}</span>
-                </span>
-                <ChevronUpDownIcon
-                  class="col-start-1 row-start-1 size-5 self-center justify-self-end fill-black sm:size-4"
-                  aria-hidden="true"
-                />
-              </ListboxButton>
-              <transition
-                leave-active-class="transition ease-in duration-100"
-                leave-from-class="opacity-100"
-                leave-to-class="opacity-0"
-              >
-                <ListboxOptions
-                  class="absolute z-10 mt-1 max-h-56 w-full overflow-auto bg-white py-1 shadow-lg ring-1 ring-gray focus:outline-none sm:text-sm"
-                >
-                  <!--/* 預設顯示 */-->
-                  <ListboxOption disabled value="{ name: '服務',img:'' }">
-                    <div class="relative select-none py-2 pl-3 pr-9 text-gray-dark">
-                      <div class="flex items-center">
-                        <span class="ml-3 block truncate">服務</span>
-                      </div>
-                    </div>
-                  </ListboxOption>
-                  <ListboxOption
-                    as="template"
-                    v-for="serve in selectData.serve"
-                    :key="serve.name"
-                    :value="serve.name"
-                    v-slot="{ active, selected }"
-                  >
-                    <li
-                      :class="[
-                        active ? 'bg-warning text-white outline-none' : 'text-gray-dark',
-                        'relative cursor-default select-none py-2 pl-3 pr-9',
-                      ]"
-                    >
-                      <div class="flex items-center">
+                        <div class="flex items-center">
+                          <span
+                            :class="[
+                              selected ? 'font-semibold' : 'font-normal',
+                              'ml-3 block text-nowrap',
+                            ]"
+                            >{{ pet }}</span
+                          >
+                        </div>
                         <span
+                          v-if="selected"
                           :class="[
-                            selected ? 'font-semibold' : 'font-normal',
-                            'ml-3 block truncate',
+                            active ? 'text-white' : 'text-gray-dark',
+                            'absolute inset-y-0 right-0 flex items-center pr-4',
                           ]"
-                          >{{ serve.name }}</span
                         >
+                          <CheckIcon class="size-5" aria-hidden="true" />
+                        </span>
+                      </li>
+                    </ListboxOption>
+                  </ListboxOptions>
+                </transition>
+              </div>
+            </Listbox>
+            <Listbox as="div" v-model="selected.serve" class="mb-4 sm:mb-3 lg:mb-0 lg:w-2/5">
+              <div class="relative">
+                <ListboxButton
+                  class="grid w-full cursor-default grid-cols-1 rounded bg-white py-1.5 pl-3 pr-2 text-left text-lg outline outline-1 outline-gray-light focus:outline-2 focus:-outline-offset-2 lg:rounded-none"
+                >
+                  <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6 text-gray-dark">
+                    <span class="block">{{ selected.serve }}</span>
+                  </span>
+                  <ChevronUpDownIcon
+                    class="col-start-1 row-start-1 size-5 self-center justify-self-end fill-black sm:size-4"
+                    aria-hidden="true"
+                  />
+                </ListboxButton>
+                <transition
+                  leave-active-class="transition ease-in duration-100"
+                  leave-from-class="opacity-100"
+                  leave-to-class="opacity-0"
+                >
+                  <ListboxOptions
+                    class="absolute z-10 mt-1 max-h-56 w-full overflow-auto bg-white py-1 shadow-lg ring-1 ring-gray focus:outline-none sm:text-sm"
+                  >
+                    <!--/* 預設顯示 */-->
+                    <ListboxOption disabled value="{ name: '服務',img:'' }">
+                      <div class="relative select-none py-2 pl-3 pr-9 text-gray-dark">
+                        <div class="flex items-center">
+                          <span class="ml-3 block">服務</span>
+                        </div>
                       </div>
-                      <span
-                        v-if="selected"
+                    </ListboxOption>
+                    <ListboxOption
+                      as="template"
+                      v-for="serve in selectData.serve"
+                      :key="serve.name"
+                      :value="serve.name"
+                      v-slot="{ active, selected }"
+                    >
+                      <li
                         :class="[
-                          active ? 'text-white' : 'text-gray-dark',
-                          'absolute inset-y-0 right-0 flex items-center pr-4',
+                          active ? 'bg-warning text-white outline-none' : 'text-gray-dark',
+                          'relative cursor-default select-none py-2 pl-3 pr-9',
                         ]"
                       >
-                        <CheckIcon class="size-5" aria-hidden="true" />
-                      </span>
-                    </li>
-                  </ListboxOption>
-                </ListboxOptions>
-              </transition>
-            </div>
-          </Listbox>
-          <Listbox as="div" v-model="selected.area" class="mb-4">
-            <div class="relative mt-2">
-              <ListboxButton
-                class="grid w-full cursor-default grid-cols-1 rounded bg-white py-1.5 pl-3 pr-2 text-left text-lg/6 outline outline-1 outline-gray-light focus:outline-2 focus:-outline-offset-2"
-              >
-                <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6 text-gray-dark">
-                  <span class="block truncate">{{ selected.area }}</span>
-                </span>
-                <ChevronUpDownIcon
-                  class="col-start-1 row-start-1 size-5 self-center justify-self-end fill-black sm:size-4"
-                  aria-hidden="true"
-                />
-              </ListboxButton>
-              <transition
-                leave-active-class="transition ease-in duration-100"
-                leave-from-class="opacity-100"
-                leave-to-class="opacity-0"
-              >
-                <ListboxOptions
-                  class="absolute z-10 mt-1 max-h-56 w-full overflow-auto bg-white py-1 text-base shadow-lg ring-1 ring-gray focus:outline-none"
-                >
-                  <!--/* 預設顯示 */-->
-                  <ListboxOption disabled value="{ area: '地區', id: '' }">
-                    <div class="relative select-none py-2 pl-3 pr-9 text-gray-dark">
-                      <div class="flex items-center">
-                        <span class="ml-3 block truncate">地區</span>
-                      </div>
-                    </div>
-                  </ListboxOption>
-                  <ListboxOption
-                    as="template"
-                    v-for="area in selectData.area"
-                    :key="area"
-                    :value="area"
-                    v-slot="{ active, selected }"
-                  >
-                    <li
-                      :class="[
-                        active ? 'bg-warning text-white outline-none' : 'text-gray-dark',
-                        'relative cursor-default select-none py-2 pl-3 pr-9',
-                      ]"
-                    >
-                      <div class="flex items-center">
+                        <div class="flex items-center">
+                          <span
+                            :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block']"
+                            >{{ serve.name }}</span
+                          >
+                        </div>
                         <span
+                          v-if="selected"
                           :class="[
-                            selected ? 'font-semibold' : 'font-normal',
-                            'ml-3 block truncate',
+                            active ? 'text-white' : 'text-gray-dark',
+                            'absolute inset-y-0 right-0 flex items-center pr-4',
                           ]"
-                          >{{ area }}</span
                         >
+                          <CheckIcon class="size-5" aria-hidden="true" />
+                        </span>
+                      </li>
+                    </ListboxOption>
+                  </ListboxOptions>
+                </transition>
+              </div>
+            </Listbox>
+            <Listbox as="div" v-model="selected.area" class="mb-4 lg:mb-0 lg:w-2/5">
+              <div class="relative">
+                <ListboxButton
+                  class="grid w-full cursor-default grid-cols-1 rounded bg-white py-1.5 pl-3 pr-2 text-left text-lg outline outline-1 outline-gray-light focus:outline-2 focus:-outline-offset-2 lg:rounded-none"
+                >
+                  <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6 text-gray-dark">
+                    <span class="block">{{ selected.area }}</span>
+                  </span>
+                  <ChevronUpDownIcon
+                    class="col-start-1 row-start-1 size-5 self-center justify-self-end fill-black sm:size-4"
+                    aria-hidden="true"
+                  />
+                </ListboxButton>
+                <transition
+                  leave-active-class="transition ease-in duration-100"
+                  leave-from-class="opacity-100"
+                  leave-to-class="opacity-0"
+                >
+                  <ListboxOptions
+                    class="absolute z-10 mt-1 max-h-56 w-full overflow-auto bg-white py-1 text-base shadow-lg ring-1 ring-gray focus:outline-none"
+                  >
+                    <!--/* 預設顯示 */-->
+                    <ListboxOption disabled value="{ area: '地區', id: '' }">
+                      <div class="relative select-none py-2 pl-3 pr-9 text-gray-dark">
+                        <div class="flex items-center">
+                          <span class="ml-3 block">地區</span>
+                        </div>
                       </div>
-                      <span
-                        v-if="selected"
+                    </ListboxOption>
+                    <ListboxOption
+                      as="template"
+                      v-for="area in selectData.area"
+                      :key="area"
+                      :value="area"
+                      v-slot="{ active, selected }"
+                    >
+                      <li
                         :class="[
-                          active ? 'text-white' : 'text-gray-dark',
-                          'absolute inset-y-0 right-0 flex items-center pr-4',
+                          active ? 'bg-warning text-white outline-none' : 'text-gray-dark',
+                          'relative cursor-default select-none py-2 pl-3 pr-9',
                         ]"
                       >
-                        <CheckIcon class="size-5" aria-hidden="true" />
-                      </span>
-                    </li>
-                  </ListboxOption>
-                </ListboxOptions>
-              </transition>
-            </div>
-          </Listbox>
+                        <div class="flex items-center">
+                          <span
+                            :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block']"
+                            >{{ area }}</span
+                          >
+                        </div>
+                        <span
+                          v-if="selected"
+                          :class="[
+                            active ? 'text-white' : 'text-gray-dark',
+                            'absolute inset-y-0 right-0 flex items-center pr-4',
+                          ]"
+                        >
+                          <CheckIcon class="size-5" aria-hidden="true" />
+                        </span>
+                      </li>
+                    </ListboxOption>
+                  </ListboxOptions>
+                </transition>
+              </div>
+            </Listbox>
 
-          <button class="w-full rounded bg-warning py-2 text-center text-lg text-white">
-            搜尋
-          </button>
+            <button
+              class="w-full rounded bg-warning text-center text-lg text-white max-lg:py-2 lg:h-11 lg:w-1/5 lg:rounded-s-none"
+            >
+              搜尋
+            </button>
+          </div>
         </div>
       </div>
     </section>

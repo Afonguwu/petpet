@@ -32,6 +32,7 @@ export default {
       center: true,
       padding: {
         DEFAULT: '1rem',
+        lg: '1.5rem',
       },
     },
     extend: {
